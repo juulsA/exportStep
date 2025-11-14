@@ -283,7 +283,7 @@ procedure( rotateXY( origin xy angle )
 )
 
 procedure( makeSlot( padstack x y rotation )
-    let( ()
+    let( ( drillOffset xDrillOffset yDrillOffset xy x y drillSizeWidth drillSizeHeight slot radius xCenter yCenter xyCenter alpha beta counterclockwise segment )
 
         drillOffset = padstack->drillOffset
 
@@ -565,13 +565,13 @@ procedure( symbolReturn3DElements( symbol )
                 y = yCoord( xy )
 
                 if( padstack->usage == "Slot" then
-                    element = makeSlot( padstack x y pin->rotation )
+                    ;element = makeSlot( padstack x y pin->rotation )
                     ; print("make slot")
-                    hole = strcat(
-                        "[\n"
-                            addIndent( buildString( element ",\n" ) )
-                        "\n]"
-                    )
+                    ; hole = strcat(
+                    ;     "[\n"
+                    ;         addIndent( buildString( element ",\n" ) )
+                    ;     "\n]"
+                    ; )
                     hole = nil
                 else
                     hole = makeCircle( x y padstack->drillDiameter )
